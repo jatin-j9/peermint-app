@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: ${DB_TEST_URL}
+    username: ${DB_TEST_USERNAME}
+    password: ${DB_TEST_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    hikari:
+      pool-name: PeerMintTestPool
+      maximum-pool-size: 5
+
+  jpa:
+    open-in-view: false
+
+    hibernate:
+      ddl-auto: none
+
+    show-sql: false
+
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+logging:
+  level:
+    root: WARN
+    com.peermint: INFO
